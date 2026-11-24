@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Event &amp; Club Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-bar">
+      <a href="#" class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Campus Hub</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#eventsSection">Events</a>
+        <a href="#savedSection">My RSVPs <span class="count-pill" id="rsvpCountBadge">0</span></a>
+        <a href="#submitSection" class="nav-cta">+ Host Event</a>
+      </nav>
+    </div>
+
+    <div class="container hero">
+      <p class="eyebrow">Student Clubs • Hackathons • Workshops • Fests</p>
+      <h1>Discover what is happening across campus this week.</h1>
+      <p class="hero-copy">
+        Browse upcoming tech sprints, design meetups, and cultural sessions, filter by track, save your RSVPs, or post a new student event.
+      </p>
+
+      <div class="toolbar">
+        <div class="search-box">
+          <label for="searchInput" class="sr-only">Search events</label>
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search by title, club, or venue..."
+          />
+        </div>
+
+        <div class="filter-tabs" role="tablist" aria-label="Filter events by category">
+          <button type="button" class="tab active" data-category="All">All</button>
+          <button type="button" class="tab" data-category="Tech & AI">Tech &amp; AI</button>
+          <button type="button" class="tab" data-category="Design & Media">Design &amp; Media</button>
+          <button type="button" class="tab" data-category="Sports & Wellness">Sports &amp; Wellness</button>
+          <button type="button" class="tab" data-category="Cultural">Cultural</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <section id="eventsSection" aria-labelledby="eventsHeading">
+      <div class="section-head">
+        <h2 id="eventsHeading">Upcoming Campus Events</h2>
+        <span class="result-meta" id="resultCountText">Showing 6 events</span>
+      </div>
+
+      <div class="events-grid" id="eventsGrid"></div>
+    </section>
+
+    <section id="savedSection" class="saved-panel" aria-labelledby="savedHeading">
+      <div class="section-head">
+        <div>
+          <h2 id="savedHeading">Your RSVP List</h2>
+          <p class="muted">Saved locally in your browser so you never lose track of your schedule.</p>
+        </div>
+        <button type="button" class="btn btn-ghost" id="clearRsvpsBtn">Clear RSVPs</button>
+      </div>
+      <ul class="rsvp-list" id="rsvpList">
+        <li class="empty-note">No events RSVP'd yet. Click "RSVP" on any card above.</li>
+      </ul>
+    </section>
+
+    <section id="submitSection" class="submit-panel" aria-labelledby="submitHeading">
+      <div class="submit-intro">
+        <p class="eyebrow">Club &amp; Peer Submissions</p>
+        <h2 id="submitHeading">Propose a New Event</h2>
+        <p class="muted">
+          Add a workshop, study circle, or club session directly to the live board for testing and demo purposes.
+        </p>
+      </div>
+
+      <form id="addEventForm" class="event-form">
+        <div class="form-row">
+          <div class="field">
+            <label for="eventTitle">Event Title</label>
+            <input type="text" id="eventTitle" placeholder="e.g., Frontend UI Critique Night" required />
+          </div>
+          <div class="field">
+            <label for="eventClub">Host Club / Team</label>
+            <input type="text" id="eventClub" placeholder="e.g., Web & Design Guild" required />
+          </div>
+        </div>
+
+        <div class="form-row three-col">
+          <div class="field">
+            <label for="eventCategory">Category</label>
+            <select id="eventCategory">
+              <option value="Tech & AI">Tech &amp; AI</option>
+              <option value="Design & Media">Design &amp; Media</option>
+              <option value="Sports & Wellness">Sports &amp; Wellness</option>
+              <option value="Cultural">Cultural</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="eventDate">Date &amp; Time</label>
+            <input type="text" id="eventDate" placeholder="e.g., Fri, 27 Nov • 4:30 PM" required />
+          </div>
+          <div class="field">
+            <label for="eventVenue">Venue</label>
+            <input type="text" id="eventVenue" placeholder="e.g., Seminar Hall B" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="eventDesc">Short Summary</label>
+          <textarea
+            id="eventDesc"
+            rows="2"
+            maxlength="180"
+            placeholder="What will participants build, practice, or experience?"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Publish Event</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>Campus Event &amp; Club Hub • HTML5, CSS3 &amp; JavaScript</span>
+      <span>Built for Web Development Mini-Project</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
